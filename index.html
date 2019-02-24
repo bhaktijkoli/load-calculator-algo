@@ -31,9 +31,9 @@
     // console.log(size);
   }
 
-  const addTire = function(scene, radius, height, x, y, z) {
+  const addTyre = function(scene, radius, height, x, y, z, color) {
     var geometry = new THREE.CylinderGeometry(radius, radius, height, 100 );
-    var material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+    var material = new THREE.MeshBasicMaterial( { color } );
     var mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
     fixOrigin(mesh, x, y, z);
@@ -57,10 +57,42 @@
 
   camera.position.z = 5;
 
-  // Tyre 1
-  addTire(scene, tyre.x/2, tyre.y, 0, 0, 0);
-  addTire(scene, tyre.x/2, tyre.y, tyre.x, 0, 0);
-  addTire(scene, tyre.x/2, tyre.y, tyre.x, 0, 0);
+  // addTyre(scene, radius, height, x, y, z, color);
+  var pos = {x: 0, y: 0, z: 0};
+  // Layer1
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0xffff00);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0xffff00);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0xffff00);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0xffff00);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0xffff00);
+  // Layer 2
+  pos.x = 0;
+  pos.y += tyre.y;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x2ecc71);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x2ecc71);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x2ecc71);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x2ecc71);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x2ecc71);
+  // Layer 3
+  pos.x = 0;
+  pos.y += tyre.y;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x3498db);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x3498db);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x3498db);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x3498db);
+  pos.x += tyre.x;
+  addTyre(scene, tyre.x/2, tyre.y, pos.x, pos.y, pos.z, 0x3498db);
 
 
 
